@@ -29,6 +29,10 @@ function NoFusion(props:any, ref:any) {
         // 在新标签中打开指定网页
         window.open('https://apps.apple.com/us/app/no-fusion/id6444706244', '_blank');
       };
+      function learnMore(){
+        console.log(props)
+        props.setAlert("Still working on it");
+    }
     return (
         <div ref = {ref} className="flex bg-gradient-to-r from-neutral-900 to-neutral-950 items-center relative z-0 py-10">
             <div className='h-[50vw]'>abcd</div>
@@ -40,8 +44,8 @@ function NoFusion(props:any, ref:any) {
                 <p className="text-2xl mb-2">Remove the over-sharpen of iPhone camera</p>
                 <p className="text-2xl mb-6">Shoot RAW and Live Photo at the same time</p>
                 <div className='flex text-gray-300 items-center'>
-                    <img onClick={handleClick} src={appStore} alt="app store" className='w-30' />
-                    <p className='ml-10 flex items-center'>Learn More <FaChevronRight /></p>
+                    <img onClick={handleClick} src={appStore} alt="app store" className='w-[8rem]' />
+                    <p className='ml-10 flex items-center' onClick={learnMore}>Learn More <FaChevronRight /></p>
                 </div>
             </div>
             <div className='w-1/4 relative transform translate-y-1/3 ml-5 filter drop-shadow-md'>
