@@ -11,25 +11,25 @@ function App() {
   let myClassicRef = useRef(null)
   let noFusionRef = useRef(null)
   let wordLinkerRef = useRef(null)
-  const [alert, setAlert] = useState("")
   const [showAlert, setShowAlert] = useState(false)
   useEffect(() => {
-    if(alert != ""){
-    setShowAlert(true)
-    setTimeout(() => {
-      setShowAlert(false)
-      setAlert("")
-    }, 2000)
-  }
-  },[alert])
+    if (showAlert) {
+      setTimeout(() => {
+        setShowAlert(false)
+      }, 2000)
+    }
+
+  }, [showAlert])
   return (
-      <div>
-      <TopBanner ref1 = {myClassicRef} ref2 = {noFusionRef} ref3 = {wordLinkerRef}/>
-      <MyClassic ref={myClassicRef} setAlert = {setAlert}/>
-      <Alert severity="info" className={`alert ${showAlert ? '' : 'hidden'}`}>{alert}</Alert>
-      <NoFusion ref={noFusionRef} setAlert = {setAlert}/>
-      <WordLinker ref={wordLinkerRef} setAlert = {setAlert}/>
-      <Contact/>
+    <div>
+      <TopBanner ref1={myClassicRef} ref2={noFusionRef} ref3={wordLinkerRef} />
+      <MyClassic ref={myClassicRef} setShowAlert={setShowAlert} />
+      <div className={`fixed top-16 z-50 transition duration-[1s] ease-out ${showAlert ? "-translate-x-0" : "-translate-x-full"}`}>
+        <Alert severity="info">Still working on it</Alert>
+      </div>
+      <NoFusion ref={noFusionRef} setShowAlert={setShowAlert} />
+      <WordLinker ref={wordLinkerRef} setShowAlert={setShowAlert} />
+      <Contact />
     </div>
   )
 }

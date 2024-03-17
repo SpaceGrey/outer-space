@@ -31,11 +31,11 @@ function NoFusion(props:any, ref:any) {
       };
       function learnMore(){
         console.log(props)
-        props.setAlert("Still working on it");
+        props.setShowAlert(true);
     }
     return (
         <div ref = {ref} className="flex bg-gradient-to-r from-neutral-900 to-neutral-950 items-center relative z-0 py-10">
-            <div className='h-[50vw]'>abcd</div>
+            <div className='h-[50vw]'></div>
             <div className=' flex-auto text-white ml-10 mr '>
                 <div className='flex my-10'>
                     <img src={icon} alt="No Fusion" className='w-10 h-10 flex-0 mr-3  rounded-md shadow-md' />

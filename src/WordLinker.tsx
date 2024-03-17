@@ -18,7 +18,7 @@ const WordLinker = forwardRef(function WordLinker(props:any,ref:any) {
     , []);
     function learnMore(){
         console.log(props)
-        props.setAlert("Still working on it");
+        props.setShowAlert(true);
     }
     useEffect(() => {
         if (seconds == 4) {
@@ -41,10 +41,11 @@ const WordLinker = forwardRef(function WordLinker(props:any,ref:any) {
                 </div>
                 <p className="text-3xl mb-10">Life is your best notebook</p>
                 <div className='flex text-gray-600 items-center'>
+                    <a href="https://testflight.apple.com/join/DGKlFwSd" target="_blank">
                     <img src={testflight} alt="app store" className="w-[9rem]" />
+                    </a>
                     <div onClick={learnMore} className='ml-10 flex items-center'>Learn More <FaChevronRight /></div>
                 </div>
-                <div className="flex-auto"></div>
             </div>
             <div className="w-1/4 mr-20 relative">
                 <div>
@@ -52,7 +53,7 @@ const WordLinker = forwardRef(function WordLinker(props:any,ref:any) {
                         wordLinkers.map((image, index) => (
                             <p key={index} className={`text-9xl font-bold text-stone-300
                         absolute  z-20 bottom-[10%]
-                        transition duration-[2s] ease-in-out opacity-${image == selected ? 1 : 0} -translate-x-[${image == selected ? "110%" : "90%"}] blur-${image == selected ? "0" : "lg"}`}>{
+                        transition duration-[2s] ease-in-out opacity-${image == selected ? 1 : 0} ${image == selected ? "-translate-x-[110%]" : "-translate-x-[90%]"} ${image == selected ? "blur-0" : "blur-lg"}`}>{
                                     wordLinker1 == image ? "Scan" : wordLinker2 == image ? "Learn" : "Review"
                                 }</p>
                         ))

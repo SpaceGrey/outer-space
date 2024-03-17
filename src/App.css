@@ -33,15 +33,3 @@
 .read-the-docs {
   color: #888;
 }
-.alert {
-  position: fixed;
-  left: 0;
-  z-index: 100;
-  top: 20%;
-  transition: transform 0.5s ease;
-}
-
-.alert.hidden {
-  transform: translateX(-100%);
-  transition: transform 0.5s ease;
-}
