@@ -6,6 +6,7 @@ import WordLinker from './WordLinker'
 import Contact from './Contact'
 import { useRef } from 'react'
 import Alert from '@mui/material/Alert';
+import "./App.css"
 function App() {
   let myClassicRef = useRef(null)
   let noFusionRef = useRef(null)
@@ -25,7 +26,7 @@ function App() {
       <div>
       <TopBanner ref1 = {myClassicRef} ref2 = {noFusionRef} ref3 = {wordLinkerRef}/>
       <MyClassic ref={myClassicRef} setAlert = {setAlert}/>
-      <Alert severity="info" className={`fixed left-0 z-[100] top-20 transition duration-1000 -translate-x-${showAlert ? "0" : "full"}` }>{alert}</Alert>
+      <Alert severity="info" className={`alert ${showAlert ? '' : 'hidden'}`}>{alert}</Alert>
       <NoFusion ref={noFusionRef} setAlert = {setAlert}/>
       <WordLinker ref={wordLinkerRef} setAlert = {setAlert}/>
       <Contact/>

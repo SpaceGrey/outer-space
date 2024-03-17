@@ -65,7 +65,8 @@ const MyClassic = forwardRef(function MyClassic(props:any, ref:any) {
                     ))}
                 <img src={background} alt="background" className={`
                 absolute top-[20%] -left-[20%] transform z-0
-                transition duration-[2s] ease-in-out opacity-${isVisible ? 50 : 0} scale-[${isVisible ? "180%" : "120%"}]`} />
+                transition duration-[2s] ease-in-out opacity-${isVisible ? 50 : 0} 
+              scale-[${isVisible ? "180%" : "100%"}]`}/>
                 <video className='absolute top-[11.5%] w-[47%] left-[6.5%] z-20' autoPlay loop muted>
                     <source src={demoVideo} type='video/mp4' />
                 </video>
