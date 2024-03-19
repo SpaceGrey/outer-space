@@ -33,9 +33,9 @@ const WordLinker = forwardRef(function WordLinker(props:any,ref:any) {
         }
     }, [seconds]);
     return (
-        <div ref = {ref} className="flex items-center relative z-10 bg-gradient-to-r from-cyan-50 to-white py-10">
-            <div className="flex-col h-[40vh] flex-auto ml-20 justify-center">
-                <div className="flex">
+        <div ref = {ref} className="flex flex-col sm:flex-row sm:items-center relative z-10 bg-gradient-to-r from-cyan-50 to-white py-10">
+            <div className="flex-col sm:h-[40vh] flex-auto ml-10 justify-center">
+                <div className="flex mr-auto">
                     <img src={wordLinkerIcon} alt="icon" className="w-10 h-10 mr-3 rounded-lg" />
                     <h1 className="text-4xl font-bold mb-3">Word Linker</h1>
                 </div>
@@ -47,13 +47,16 @@ const WordLinker = forwardRef(function WordLinker(props:any,ref:any) {
                     <div onClick={learnMore} className='ml-10 flex items-center'>Learn More <FaChevronRight /></div>
                 </div>
             </div>
-            <div className="w-1/4 mr-20 relative">
+            <div className="flex justify-end sm:w-[33vw]">
+            <div className=" mr-10 relative w-[60vw] sm:w-[33vw]">
                 <div>
                     {
                         wordLinkers.map((image, index) => (
-                            <p key={index} className={`text-9xl font-bold text-stone-300
+                            <p key={index} className={`text-8xl sm:text-7xl md:text-9xl font-bold text-stone-300
                         absolute  z-20 bottom-[10%]
-                        transition duration-[2s] ease-in-out opacity-${image == selected ? 1 : 0} ${image == selected ? "-translate-x-[110%]" : "-translate-x-[90%]"} ${image == selected ? "blur-0" : "blur-lg"}`}>{
+                        transition duration-[2s] ease-in-out opacity-${image == selected ? 1 : 0} 
+                        ${image == selected ? "sm:-translate-x-[110%] -translate-x-[60%] " : "sm:-translate-x-[90%] -translate-x-[40%]"} 
+                        ${image == selected ? "blur-0" : "blur-lg"}`}>{
                                     wordLinker1 == image ? "Scan" : wordLinker2 == image ? "Learn" : "Review"
                                 }</p>
                         ))
@@ -66,6 +69,7 @@ const WordLinker = forwardRef(function WordLinker(props:any,ref:any) {
                     ))
                 }
                 <img src={wordLinker1} alt="Scan" className="opacity-0" />
+            </div>
             </div>
         </div>
     );

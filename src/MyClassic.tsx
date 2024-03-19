@@ -14,7 +14,7 @@ const MyClassic = forwardRef(function MyClassic(props:any, ref:any) {
     const backgrounds = [myPod1, myPod2, myPod3];
     const [seconds, setSeconds] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
-    const [showOverlay, setShowOverlay] = useState(false);
+    const setOverlay = props.setOverlay;
     useEffect(() => {
         const interval = setInterval(() => {
             setSeconds(prevSeconds => prevSeconds + 1);
@@ -45,21 +45,20 @@ const MyClassic = forwardRef(function MyClassic(props:any, ref:any) {
         props.setShowAlert(true);
     }
     return (
-        <div ref={ref} className="text-gray-900 py-10 mt-10 flex bg-gradient-to-r relative from-stone-300 to-stone-400 items-center truncate z-10">
-            {showOverlay && <ExplainPage cancel={()=>{setShowOverlay(false)}}/>}
-            <div className='h-[45vw]'></div>
-            <div className='flex-auto ml-20'>
-                <div className='flex'>
+        <div ref={ref} className="text-gray-900 py-10 mt-10 flex flex-col items-start sm:items-center sm:flex-row bg-gradient-to-r relative from-stone-300 to-stone-400  truncate z-10">
+            <div className='h-10 sm:h-[45vw]'></div>
+            <div className='flex-auto ml-10 mb-10 '>
+                <div className='flex z-10'>
                     <img src={appIcon} alt="No Fusion" className='w-10 h-10 flex-0 mr-3  rounded-md shadow-md' />
                     <h1 className="text-4xl font-bold mb-4">My Classic</h1>
                 </div>
                 <p className='text-2xl mb-10'>Bring back iPod to iPhone</p>
                 <div className='flex text-gray-600 items-center'>
-                    <img onClick={()=>{setShowOverlay(true)}} src={appStore} alt="app store" className='w-[8rem]' />
+                    <img onClick={()=>{setOverlay(true)}} src={appStore} alt="app store" className='w-[8rem]' />
                     <p className='ml-10 flex items-center' onClick={learnMore}>Learn More <FaChevronRight /></p>
                 </div>
             </div>
-            <div className='flex-1 relative items-center'>
+            <div className='flex-1 min-w-60 relative items-center'>
                 <img src={myPod3} alt="my pod" className=' relative w-[60%] z-10 opacity-1 filter drop-shadow-md' />
 
                     {backgrounds.map((image, index) => (
@@ -68,7 +67,7 @@ const MyClassic = forwardRef(function MyClassic(props:any, ref:any) {
                     ))}
                 <img src={background} alt="background" className={`
             absolute top-[20%] -left-[20%] truncate transform z-0
-            transition duration-[2s] ease-in-out ${isVisible ? 'opacity-50' : 'opacity-0'}
+            transition duration-[2s] ease-in-out ${isVisible ? 'opacity-30' : 'opacity-0'}
             ${isVisible ? 'scale-[180%]' : 'scale-[100%]'}`}/>
                 <video className='absolute top-[11.5%] w-[47%] left-[6.5%] z-20' autoPlay loop muted>
                     <source src={demoVideo} type='video/mp4' />

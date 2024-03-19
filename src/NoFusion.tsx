@@ -34,7 +34,7 @@ function NoFusion(props:any, ref:any) {
         props.setShowAlert(true);
     }
     return (
-        <div ref = {ref} className="flex bg-gradient-to-r from-neutral-900 to-neutral-950 items-center relative z-0 py-10">
+        <div ref = {ref} className="flex bg-gradient-to-r from-neutral-900 to-neutral-950 items-center relative z-0 py-10 flex-wrap-reverse sm:flex-nowrap">
             <div className='h-[50vw]'></div>
             <div className=' flex-auto text-white ml-10 mr '>
                 <div className='flex my-10'>
@@ -48,11 +48,11 @@ function NoFusion(props:any, ref:any) {
                     <p className='ml-10 flex items-center' onClick={learnMore}>Learn More <FaChevronRight /></p>
                 </div>
             </div>
-            <div className='w-1/4 relative transform translate-y-1/3 ml-5 filter drop-shadow-md'>
+            <div className='hidden md:inline w-1/4 relative transform translate-y-1/3 ml-5 filter drop-shadow-md'>
                 <img src={image1} alt='No Fusion'
                     style={getOffset(0.2)} />
             </div>
-            <div className='w-1/4 relative transform -translate-y-1/3 mx-5 filter drop-shadow-md'>
+            <div className='sm:w-1/4 relative transform -translate-y-1/3 mx-5 filter drop-shadow-md'>
                 <img src={image} alt='No Fusion'
                     style={getOffset(-0.2)} />
 
