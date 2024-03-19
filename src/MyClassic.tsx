@@ -6,7 +6,6 @@ import myPod1 from '/src/assets/mypod-1.png';
 import myPod2 from '/src/assets/mypod-2.png';
 import myPod3 from '/src/assets/mypod-3.png';
 import { useState, useEffect } from 'react';
-import ExplainPage from './ExplainPage';
 import background from '/src/assets/cover-flow-background.png';
 import { forwardRef } from 'react';
 const MyClassic = forwardRef(function MyClassic(props:any, ref:any) {

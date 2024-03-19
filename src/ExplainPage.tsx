@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react';
 import cheatCode from '/src/assets/cheat-code.png';
 import console from '/src/assets/console.png';
 import { FaXmark } from "react-icons/fa6";
