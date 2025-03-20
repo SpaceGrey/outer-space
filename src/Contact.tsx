@@ -16,7 +16,7 @@ function Contact() {
     <div style = {flex} className="py-[5rem] bg-gradient-to-br from-slate-300 to-slate-50">
             <div className='flex items-center'>
         <img src={photo} alt="photo" className=' h-16 rounded-full shadow-md  m-5' />
-        <h1 className="flex-initial text-center text-3xl font-semibold">Contact Me</h1>
+        <h2 className="flex-initial text-center text-3xl font-semibold">Hangzhou Swift Software Studio</h2>
         </div>
         <div className='flex mt-4 pb-[200px]'>
             <a href='https://twitter.com/Wangpeiyi23' target='_blank'><img src={twitter} alt="twitter" className='h-12 m-3 transition duration-300 ease-in-out transform hover:scale-110'/></a>
