@@ -8,7 +8,9 @@ import myPod3 from '/src/assets/mypod-3.png';
 import { useState, useEffect } from 'react';
 import background from '/src/assets/cover-flow-background.png';
 import { forwardRef } from 'react';
+import { useTranslation } from 'react-i18next';
 const MyClassic = forwardRef(function MyClassic(props:any, ref:any) {
+    const { t } = useTranslation();
     const [placeholder, setPlaceholder] = useState(myPod1);
     const backgrounds = [myPod1, myPod2, myPod3];
     const [seconds, setSeconds] = useState(0);
@@ -44,17 +46,18 @@ const MyClassic = forwardRef(function MyClassic(props:any, ref:any) {
         props.setShowAlert(true);
     }
     return (
-        <div ref={ref} className="text-gray-900 py-10 mt-10 flex flex-col items-start sm:items-center sm:flex-row bg-gradient-to-r relative from-stone-300 to-stone-400  truncate z-10">
-            <div className='h-10 sm:h-[45vw]'></div>
+        <div ref={ref} className="text-gray-900 py-10 mt-10 bg-gradient-to-r relative from-stone-300 to-stone-400 truncate z-10">
+        <div className="max-w-7xl mx-auto flex flex-col items-start sm:items-center sm:flex-row px-4">
+            <div className='h-10 sm:h-[45vw] lg:h-[30vh] xl:h-[25vh]'></div>
             <div className='flex-auto ml-10 mb-10 '>
                 <div className='flex z-10'>
                     <img src={appIcon} alt="No Fusion" className='w-10 h-10 flex-0 mr-3  rounded-md shadow-md' />
-                    <h1 className="text-4xl font-bold mb-4">My Classic</h1>
+                    <h1 className="text-3xl sm:text-4xl font-bold mb-4">{t('my_classic')}</h1>
                 </div>
-                <p className='text-2xl mb-10'>Bring back iPod to iPhone</p>
+                <p className='text-gray-600 text-lg sm:text-2xl mb-10'>{t('bring_back_ipod')}</p>
                 <div className='flex text-gray-600 items-center'>
                     <img onClick={()=>{setOverlay(true)}} src={appStore} alt="app store" className='w-[8rem]' />
-                    <p className='ml-10 flex items-center' onClick={learnMore}>Learn More <FaChevronRight /></p>
+                    <p className='ml-10 flex items-center cursor-pointer' onClick={learnMore}>{t('learn_more')} <FaChevronRight className="ml-1 align-middle" /></p>
                 </div>
             </div>
             <div className='flex-1 min-w-60 relative items-center'>
@@ -72,6 +75,7 @@ const MyClassic = forwardRef(function MyClassic(props:any, ref:any) {
                     <source src={demoVideo} type='video/mp4' />
                 </video>
             </div>
+        </div>
         </div>);
 });
 

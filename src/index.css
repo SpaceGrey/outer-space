@@ -115,4 +115,28 @@ meter {
     font-weight: 800;
     font-style: normal;
   }
+
+/* Base font-size for large screens */
+html {
+  font-size: 16px;
+}
+
+/* Medium screens (tablets, small laptops) */
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Prevent horizontal scroll on all screens */
+body {
+  overflow-x: hidden;
+}
   

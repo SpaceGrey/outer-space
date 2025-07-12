@@ -1,5 +1,7 @@
+import { useTranslation } from 'react-i18next';
 
 function TopBanner(props:any) {
+    const { t } = useTranslation();
     const click1=()=>{
         props.ref1.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -17,10 +19,10 @@ function TopBanner(props:any) {
       };
     return ( <>
     <div className = "flex bg-slate-100 fixed top-0 w-full z-50 bg-opacity-80 backdrop-blur-md" >
-        <span onClick={scrollToTop} className='satisfy-regular text-slate-700 px-5 text-xl py-3'>Outer Space</span>
-        <button onClick={click1} className="text-black flex-auto text-center py-3 hover:bg-slate-200 hover:bg-opacity-40">My Classic</button>
-        <div  onClick={click2} className="text-black flex-auto text-center py-3 hover:bg-slate-200 hover:bg-opacity-40">No Fusion</div>
-        <div onClick={click3} className="text-black flex-auto text-center py-3 hover:bg-slate-200">Word Linker</div>
+        <span onClick={scrollToTop} className='satisfy-regular text-slate-700 px-5 text-xl py-3'>{t('outer_space')}</span>
+        <button onClick={click1} className="text-black flex-auto text-center py-3 hover:bg-slate-200 hover:bg-opacity-40">{t('my_classic')}</button>
+        <div  onClick={click2} className="text-black flex-auto text-center py-3 hover:bg-slate-200 hover:bg-opacity-40">{t('no_fusion')}</div>
+        <div onClick={click3} className="text-black flex-auto text-center py-3 hover:bg-slate-200">{t('word_linker')}</div>
     </div>
     </>);
 }
