@@ -16,6 +16,14 @@ const resources = {
       scan: 'Scan',
       learn: 'Learn',
       review: 'Review',
+      explain_because: 'Because Apple thinks my app is too similar to iPod, I have to use some camouflage.',
+      step1: 'Step 1:',
+      download_console: 'Download the game console',
+      step2: 'Step 2:',
+      enter_code: 'Enter the',
+      step3: 'Step 3:',
+      enjoy: 'Enjoy',
+      go_app_store: 'Go to App Store',
       hangzhou_swift: 'Hangzhou Swift Software Studio'
     }
   },
@@ -33,6 +41,14 @@ const resources = {
       scan: '扫描',
       learn: '学习',
       review: '复习',
+      explain_because: '因为 Apple 认为我的应用与 iPod 过于相似，所以我不得不用一些伪装。',
+      step1: '步骤 1：',
+      download_console: '下载游戏主机',
+      step2: '步骤 2：',
+      enter_code: '输入',
+      step3: '步骤 3：',
+      enjoy: '享受吧',
+      go_app_store: '前往 App Store',
       hangzhou_swift: 'Hangzhou Swift Software Studio'
     }
   }
