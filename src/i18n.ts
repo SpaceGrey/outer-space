@@ -49,7 +49,7 @@ const resources = {
       step3: '步骤 3：',
       enjoy: '享受吧',
       go_app_store: '前往 App Store',
-      hangzhou_swift: 'Hangzhou Swift Software Studio'
+      hangzhou_swift: '杭州思维夫特软件工作室'
     }
   }
 };
