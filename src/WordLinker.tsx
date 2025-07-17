@@ -39,7 +39,7 @@ const WordLinker = forwardRef(function WordLinker(props:any,ref:any) {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center px-4">
             <div className="flex-col sm:h-[40vh] flex-auto ml-10 justify-center">
                 <div className="flex mr-auto">
-                    <img src={wordLinkerIcon} alt="icon" className="w-10 h-10 mr-3 rounded-lg" />
+                    <img src={wordLinkerIcon} alt="icon" className="w-10 h-10 mr-3 rounded-[23%]" />
                     <h1 className="text-3xl sm:text-4xl font-bold mb-3">{t('word_linker')}</h1>
                 </div>
                 <p className="text-gray-600 text-lg sm:text-2xl mb-10">{t('life_notebook')}</p>

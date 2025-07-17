@@ -51,7 +51,7 @@ const MyClassic = forwardRef(function MyClassic(props:any, ref:any) {
             <div className='h-10 sm:h-[45vw] lg:h-[30vh] xl:h-[25vh]'></div>
             <div className='flex-auto ml-10 mb-10 '>
                 <div className='flex z-10'>
-                    <img src={appIcon} alt="No Fusion" className='w-10 h-10 flex-0 mr-3  rounded-md shadow-md' />
+                    <img src={appIcon} alt="No Fusion" className='w-10 h-10 flex-0 mr-3 shadow-md rounded-[23%]' />
                     <h1 className="text-3xl sm:text-4xl font-bold mb-4">{t('my_classic')}</h1>
                 </div>
                 <p className='text-gray-600 text-lg sm:text-2xl mb-10'>{t('bring_back_ipod')}</p>
