@@ -7,7 +7,7 @@ import { FaChevronRight } from "react-icons/fa6";
 import { forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 const NoFusion = forwardRef(
-function NoFusion(props:any, ref:any) {
+function NoFusion(_props:any, ref:any) {
     const { t } = useTranslation();
     const [scrollY, setScrollY] = useState(0);
 
