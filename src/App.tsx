@@ -1,42 +1,107 @@
-import { useEffect, useState } from 'react'
-import TopBanner from './TopBanner'
-import NoFusion from './NoFusion'
-import MyClassic from './MyClassic'
-import WordLinker from './WordLinker'
-import Contact from './Contact'
-import { useRef } from 'react'
-import Alert from '@mui/material/Alert';
-import ExplainPage from './ExplainPage'
-import "./App.css"
-function App() {
-  let myClassicRef = useRef(null)
-  let noFusionRef = useRef(null)
-  let wordLinkerRef = useRef(null)
-  const [showOverlay,setOverlay] = useState(false)
-  const [showAlert, setShowAlert] = useState(false)
-  useEffect(() => {
-    if (showAlert) {
-      setTimeout(() => {
-        setShowAlert(false)
-      }, 2000)
-    }
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import HomePage from './HomePage';
+import NoFusionDetail from './NoFusionDetail';
+import './App.css';
 
-  }, [showAlert])
-  return (
-    <div>
-      <TopBanner ref1={myClassicRef} ref2={noFusionRef} ref3={wordLinkerRef} />
-      <MyClassic ref={myClassicRef} setShowAlert={setShowAlert} setOverlay={setOverlay} />
-      <div className={`fixed top-16 z-50 transition duration-[1s] ease-out ${showAlert ? "-translate-x-0" : "-translate-x-full"}`}>
-        <Alert severity="info">Still working on it</Alert>
-      </div>
-      <NoFusion ref={noFusionRef} setShowAlert={setShowAlert} />
-      <WordLinker ref={wordLinkerRef} setShowAlert={setShowAlert} />
-      <Contact />
-      {showOverlay && <div className={`fixed top-0 left-0 z-50 transition-all ${showOverlay ? "opacity-100" : "opacity-0"}`}>
-      <ExplainPage cancel={()=>{setOverlay(false)}}/>
-      </div>}
-    </div>
-  )
+type RoutePath = '/' | '/nofusion';
+
+function normalizePath(pathname: string): RoutePath {
+  return pathname === '/nofusion' ? '/nofusion' : '/';
 }
 
-export default App
+function App() {
+  const { t, i18n } = useTranslation();
+  const [path, setPath] = useState<RoutePath>(() => normalizePath(window.location.pathname));
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setPath(normalizePath(window.location.pathname));
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  useEffect(() => {
+    document.title = path === '/nofusion' ? 'No Fusion - Raster Field' : 'Raster Field';
+    setMenuOpen(false);
+  }, [path]);
+
+  function navigate(nextPath: RoutePath) {
+    setMenuOpen(false);
+
+    if (nextPath !== path) {
+      window.history.pushState(null, '', nextPath);
+      setPath(nextPath);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function scrollHomeSection(sectionId: string) {
+    setMenuOpen(false);
+
+    const scrollToSection = () => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    if (path !== '/') {
+      window.history.pushState(null, '', '/');
+      setPath('/');
+      window.setTimeout(scrollToSection, 60);
+      return;
+    }
+
+    scrollToSection();
+  }
+
+  function toggleLanguage() {
+    void i18n.changeLanguage(i18n.language.startsWith('zh') ? 'en' : 'zh');
+  }
+
+  return (
+    <>
+      <header className={`site-nav ${menuOpen ? 'nav-open' : ''}`}>
+        <button className="nav-brand brand-wordmark" type="button" onClick={() => navigate('/')}>
+          Raster Field
+        </button>
+        <nav className="nav-links" aria-label={t('nav.products')}>
+          <button type="button" onClick={() => scrollHomeSection('my-classic')}>
+            {t('my_classic')}
+          </button>
+          <button type="button" onClick={() => navigate('/nofusion')}>
+            {t('no_fusion')}
+          </button>
+          <button type="button" onClick={() => scrollHomeSection('word-linker')}>
+            {t('word_linker')}
+          </button>
+        </nav>
+        <div className="nav-actions">
+          <button className="nav-language" type="button" onClick={toggleLanguage}>
+            {i18n.language.startsWith('zh') ? 'EN' : '中文'}
+          </button>
+          <button
+            className="nav-menu-toggle"
+            type="button"
+            aria-label={menuOpen ? t('nav.close') : t('nav.menu')}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((isOpen) => !isOpen)}
+          >
+            <span />
+            <span />
+          </button>
+        </div>
+      </header>
+
+      {path === '/nofusion' ? (
+        <NoFusionDetail onNavigateHome={() => navigate('/')} />
+      ) : (
+        <HomePage onOpenNoFusion={() => navigate('/nofusion')} />
+      )}
+    </>
+  );
+}
+
+export default App;
