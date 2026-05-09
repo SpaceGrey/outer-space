@@ -240,7 +240,7 @@
   display: grid;
   justify-items: center;
   gap: 14px;
-  width: min(100%, 680px);
+  width: min(100%, 960px);
 }
 
 .studio-wordmark {
@@ -248,7 +248,7 @@
   isolation: isolate;
   margin: 0;
   color: #1d1d1f;
-  font-size: clamp(2.7rem, 7.2vw, 5.4rem);
+  font-size: clamp(2.1rem, 6vw, 4.7rem);
   font-weight: 900;
   line-height: 0.94;
 }

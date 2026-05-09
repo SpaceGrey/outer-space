@@ -134,7 +134,7 @@ const resources = {
       step3: 'Step 3:',
       enjoy: 'Enjoy',
       go_app_store: 'Go to App Store',
-      hangzhou_swift: 'Raster Field',
+      hangzhou_swift: 'Raster Field Co., Ltd.',
     },
   },
   zh: {
@@ -269,7 +269,7 @@ const resources = {
       step3: '步骤 3：',
       enjoy: '享受吧',
       go_app_store: '前往 App Store',
-      hangzhou_swift: 'Raster Field',
+      hangzhou_swift: 'Raster Field Co., Ltd.',
     },
   },
 };
